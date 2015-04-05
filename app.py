@@ -21,7 +21,7 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         def open(self):
                 self.uid = str(uid)
                 print(self.uid, " has connected")
-                #connection_opened(self)
+                connection_manager.connection_opened(self)
                 self.write_message("SOCKET OPENED UP: " + self.uid)
 
 
@@ -31,7 +31,7 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
 
         def on_close(self):
                 print ("closed: " , self.uid)
-                #connection_closed(self)
+                connection_manager.connection_closed(self)
 
 settings = dict(
         template_path = os.path.join(os.path.dirname(__file__), "template"),

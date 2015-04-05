@@ -1,8 +1,7 @@
 ##Connection Manager
+	
 
-
-##TODO: Create a dictionary with uid as key and websocket connection as value
-
+##Connections: a dictionary with uid as key and websocket connection as value
 connections = {}
 
 def connection_opened(ws):

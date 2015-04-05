@@ -28,7 +28,6 @@ class Entity(object):
 ##Player_name is client-defined String
 ##UID is server-defined  Int
 class Player(Entity):
-	def __init__(self, player_name, uid):
+	def __init__(self, uid, player_name ='Default Name'):
 		self.player_name = player_name;
 		self.uid = uid;
-		
