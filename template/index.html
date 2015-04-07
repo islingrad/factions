@@ -1,25 +1,9 @@
+<html>
+<script src="static/factions.js"></script>
+<script src="static/landing_page.js"></script>
 <title>Tornado WebSockets</title>
-<script>
-    var ws;
- 
-    function onLoad() {
-        ws = new WebSocket("ws://localhost:8080/websocket");
-
-	ws.onopen = function(){
-		console.log("ehelfksd");
-	}
- 
-        ws.onmessage = function(e) {
-           console.log(e.data);
-        };
-    }
-    onLoad();
- 
-    function sendMsg() {
-        ws.send(document.getElementById('msg').value);
-    }
-</script>
- 
+ <body></body>
  
 <strong>Message to Send:</strong> <input type="text" id="msg" maxlength="25">
  <input type="button" onclick="sendMsg();" value="Send">
+ </html>

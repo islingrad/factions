@@ -24,7 +24,6 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
                 connection_manager.connection_opened(self)
                 self.write_message("SOCKET OPENED UP: " + self.uid)
 
-
         def on_message(self, message):
                 print("From- ", self.uid, ": Your message was: " + message)
                 self.write_message("GOT MSG" +  message)
