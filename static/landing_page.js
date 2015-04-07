@@ -9,4 +9,5 @@ function landing_page(){
 	var create_game = document.createElement('button');
 	new_element.appendChild(join_game);
 	new_element.appendChild(create_game);
+}
 
