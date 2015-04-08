@@ -2,8 +2,16 @@
 <script src="static/factions.js"></script>
 <script src="static/landing_page.js"></script>
 <title>Tornado WebSockets</title>
- <body></body>
- 
-<strong>Message to Send:</strong> <input type="text" id="msg" maxlength="25">
- <input type="button" onclick="sendMsg();" value="Send">
+ <body id='body'>
+
+ </body>
+ <span id='player_msg'>
+ <strong id='msg_label'>Username:</strong> <input type="text" id="msg" maxlength="25">
+ <input type="button" id='msg_button' value="Send">
+</span>
+
+<script type="text/javascript">
+Factions.get_text_input('Username:', 'username');
+Factions.landing_page();
+</script>
  </html>
