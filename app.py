@@ -4,7 +4,7 @@ import tornado.websocket
 import os.path
 import webbrowser
 
-import json
+
 
 import game_classes
 import games_manager
@@ -22,19 +22,19 @@ class MainHandler(tornado.web.RequestHandler):
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
         def open(self):
                 self.uid = str(uid)
+                self.name = 'DEFAULT NOOB NAME'
                 print(self.uid, " has connected")
                 connection_manager.connection_opened(self)
-                self.write_message("SOCKET OPENED UP: " + self.uid)
 
         def on_message(self, message):
-                print("From- ", self.uid, ": Your message was: " + message)
-                decoded = json.loads(message)
-                print(decoded)
-                self.write_message("GOT MSG" +  message)
+                connection_manager.message_handler(self, message);
 
         def on_close(self):
-                print ("closed: " , self.uid)
+                print ("closed connection: " , self.uid)
                 connection_manager.connection_closed(self)
+
+        def __repr__(self):
+                return "UID: {0} , Name: {1}".format(self.uid, self.name)
 
 settings = dict(
         template_path = os.path.join(os.path.dirname(__file__), "template"),
