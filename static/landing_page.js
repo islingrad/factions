@@ -1,5 +1,5 @@
 Factions.landing_page = function (){
-	Factions.clear_shown();
+	
 	var body = document.getElementsByTagName('body');
 	var new_element = document.createElement('div');
 	new_element.id = 'shown_element';

@@ -28,6 +28,8 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
 
         def on_message(self, message):
                 print("From- ", self.uid, ": Your message was: " + message)
+                decoded = json.loads(message)
+                print(decoded)
                 self.write_message("GOT MSG" +  message)
 
         def on_close(self):
