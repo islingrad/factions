@@ -22,6 +22,8 @@ def message_handler(ws, message):
 	tag = decoded['type']
 	if tag == 'username':
 		assign_username(ws, decoded)
+	elif tag == 'global_msg':
+		update_all(ws, decoded)
 	else:
 		print('unknown message type received')
 
@@ -32,6 +34,9 @@ def assign_username(ws, msg):
 	encode = json.dumps(accepted)
 	ws.write_message(encode)
 
-
-
+def update_all(origin_player, msg):
+	print('got here ', msg)
+	my_msg = {'origin': origin_player.name, 'message' : msg['data']}
+	for socket in connections.values():
+		socket.write_message({'tag': 'global_chat', 'data' : my_msg })
 

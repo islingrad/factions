@@ -2,8 +2,6 @@ var Factions = {}
 
 Factions.msg_type = 'default';
 
-
-
 function onLoad() {
     Factions.ws = new WebSocket("ws://localhost:8080/websocket");
 
@@ -40,10 +38,14 @@ Factions.toggle_shown_text_input = function() {
 }
 
 Factions.get_text_input = function(label_text, message_label) {
-	Factions.toggle_shown_text_input();
+	//Factions.toggle_shown_text_input();
     document.getElementById('msg_label').innerHTML = label_text;
 	Factions.msg_type = message_label;
     var button = document.getElementById('msg_button');
     button.addEventListener('click', Factions.notify);
-	button.addEventListener('click', Factions.toggle_shown_text_input);
-};  
+	//button.addEventListener('click', Factions.toggle_shown_text_input);
+}; 
+
+Factions.get_username = function() {
+    Factions.get_text_input('Username:', 'username');
+}
